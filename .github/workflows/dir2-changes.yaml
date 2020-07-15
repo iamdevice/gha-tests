@@ -2,10 +2,14 @@ name: DIR 2
 
 on:
   pull_request:
-    paths: ['dir2/**']
+    paths:
+      - 'dir2/**'
+      - '.github/workflows/dir2-changes.yaml'
   push:
     branches: ['master']
-    paths: ['dir2/**']
+    paths:
+      - 'dir2/**'
+      - '.github/workflows/dir2-changes.yaml'
 
 jobs:
   build:
@@ -16,6 +20,6 @@ jobs:
       - name: Branch name
         run: echo ${GITHUB_REF##*/}
 
-      - name: Step only for master
-        if: ${GITHUB_REF##*/} === 'master'
-        run: echo 'OK'
+#      - name: Step only for master
+#        if: ${GITHUB_REF##*/} === 'master'
+#        run: echo 'OK'
