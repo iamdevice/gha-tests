@@ -18,7 +18,9 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Branch name
-        run: echo ${GITHUB_REF##*/}
+        run: |
+          echo ${GITHUB_REF}
+          echo ${GITHUB_REF##*/}
 
 #      - name: Step only for master
 #        if: ${GITHUB_REF##*/} === 'master'
