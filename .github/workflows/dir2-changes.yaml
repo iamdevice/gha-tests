@@ -1,11 +1,11 @@
-name: DIR 1
+name: DIR 2
 
 on:
   pull_request:
-    paths: ['dir1/**']
+    paths: ['dir2/**']
   push:
     branches: ['master']
-    paths: ['dir1/**']
+    paths: ['dir2/**']
 
 jobs:
   build:
@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Branch name
-        run: echo ${GITHUB_REF##*/}
+        run: |
+          echo ${GITHUB_REF}
+          echo ${GITHUB_REF##*/}
+          echo ${{ github.ref }}
 
       - name: Step only for master
         if: github.event_name == 'push'
