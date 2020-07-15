@@ -4,7 +4,7 @@ on:
   pull_request:
     paths: ['dir1/**']
   push:
-    branches: ['master']
+    branches: ['main']
     paths: ['dir1/**']
 
 jobs:
