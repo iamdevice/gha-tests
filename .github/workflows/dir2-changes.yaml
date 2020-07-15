@@ -21,7 +21,8 @@ jobs:
         run: |
           echo ${GITHUB_REF}
           echo ${GITHUB_REF##*/}
+          echo ${github.ref}
 
       - name: Step only for master
-        if: ${{ ${{ GITHUB_REF }}##*/ }} == 'master'
+        if: ${{ github.ref##*/ }} == 'master'
         run: echo 'OK'
