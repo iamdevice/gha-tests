@@ -1,0 +1,25 @@
+name: DIR 2
+
+on:
+  pull_request:
+    paths:
+      - 'dir2/**'
+      - '.github/workflows/dir2-changes.yaml'
+  push:
+    branches: ['master']
+    paths:
+      - 'dir2/**'
+      - '.github/workflows/dir2-changes.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Branch name
+        run: echo ${GITHUB_REF##*/}
+
+      - name: Step only for master
+        if: ${GITHUB_REF##*/} === 'master'
+        run: echo 'OK'
