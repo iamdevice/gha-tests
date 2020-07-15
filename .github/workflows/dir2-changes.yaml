@@ -2,14 +2,10 @@ name: DIR 2
 
 on:
   pull_request:
-    paths:
-      - 'dir2/**'
-      - '.github/workflows/dir2-changes.yaml'
+    paths: ['dir2/**']
   push:
     branches: ['master']
-    paths:
-      - 'dir2/**'
-      - '.github/workflows/dir2-changes.yaml'
+    paths: ['dir2/**']
 
 jobs:
   build:
